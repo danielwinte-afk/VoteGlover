@@ -335,6 +335,21 @@
     nav ul { gap: 14px; }
     .hero h1 { font-size: 2.2rem; }
   }
+
+  /* ---------- Videos & social feeds ---------- */
+  .video-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:10px; }
+  .video-card { margin:0; }
+  .video-card video { width:100%; aspect-ratio:16/9; background:#000; border-radius:10px; box-shadow:0 4px 18px rgba(20,40,60,0.15); display:block; }
+  .video-card figcaption { margin-top:10px; font-weight:600; color:var(--navy); letter-spacing:0.03em; }
+  .social-bg { background: var(--off-white); }
+  .social-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:10px; }
+  .social-card { background:white; border-radius:10px; box-shadow:0 4px 18px rgba(20,40,60,0.10); padding:20px; display:flex; flex-direction:column; align-items:center; gap:14px; }
+  .social-card h3 { font-size:1.3rem; }
+  .social-embed { width:100%; max-width:500px; height:560px; border:none; overflow:hidden; border-radius:8px; background:var(--placeholder-bg); }
+  .social-btn { display:inline-block; }
+  @media (max-width: 860px) {
+    .video-grid, .social-grid { grid-template-columns:1fr; }
+  }
 </style>
 </head>
 <body>
@@ -388,10 +403,41 @@
 <section id="video" class="big-three-bg">
   <div class="container" style="text-align:center;">
     <h2 class="section-title">Meet Dr. Glover</h2>
-    <video controls style="width:100%; max-width:800px; border-radius:10px; box-shadow:0 4px 18px rgba(20,40,60,0.15);">
-      <source src="Video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div class="video-grid">
+      <figure class="video-card">
+        <video controls preload="metadata" playsinline>
+          <source src="Video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>English</figcaption>
+      </figure>
+      <figure class="video-card">
+        <video controls preload="metadata" playsinline>
+          <source src="Glover-Spanish.mp4" type="video/mp4">
+          Su navegador no admite videos.
+        </video>
+        <figcaption>Español</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL FEEDS ============ -->
+<section id="social" class="social-bg">
+  <div class="container" style="text-align:center;">
+    <h2 class="section-title">Follow the Campaign</h2>
+    <div class="social-grid">
+      <div class="social-card">
+        <h3>Instagram</h3>
+        <iframe class="social-embed" src="https://www.instagram.com/drtomgloverforschoolboard/embed/" title="Dr. Tom Glover on Instagram" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+        <a class="btn-outline social-btn" href="https://www.instagram.com/drtomgloverforschoolboard" target="_blank" rel="noopener">Follow @drtomgloverforschoolboard</a>
+      </div>
+      <div class="social-card">
+        <h3>Facebook</h3>
+        <iframe class="social-embed" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61593767233994&tabs=timeline&width=500&height=560&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" title="Dr. Tom Glover on Facebook" loading="lazy" scrolling="no" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        <a class="btn-outline social-btn" href="https://www.facebook.com/profile.php?id=61593767233994" target="_blank" rel="noopener">Follow on Facebook</a>
+      </div>
+    </div>
   </div>
 </section>
 
